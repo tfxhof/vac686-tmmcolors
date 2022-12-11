@@ -1,0 +1,12 @@
+angulo de incidencia theta = 0º
+iluminante D65
+
+# Caso 1
+d = [inf 100 inf]
+n = [1 m_Si m_Au]
+RGB = [0.7479 0.9396 0.6148]
+
+# Caso 2
+d = [inf 100 10 inf]
+n = [1 m_Si m_Au 1]
+RGB = [0.6834 0.8718 0.5857]
