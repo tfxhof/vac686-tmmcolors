@@ -1,4 +1,4 @@
-from src.calculo_color.calculo_color import leer_fichero
+from src.calculo_color.lee_fichero import leer_fichero
 
 
 def saludar(nombre):

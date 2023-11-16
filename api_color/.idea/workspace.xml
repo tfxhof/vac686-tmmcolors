@@ -2,17 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ce6c5ebe-7c3e-4f82-bfb5-d6c76f9888fa" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/calculo_color/lee_fichero.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/others/mainprueba.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test1/pruebas.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/documets/m_Au.txt" beforeDir="false" afterPath="$PROJECT_DIR$/documents/m_Au.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/documets/m_Si (1).txt" beforeDir="false" afterPath="$PROJECT_DIR$/documents/m_Si.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/documets/test.txt" beforeDir="false" afterPath="$PROJECT_DIR$/documents/test.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/calculo_color.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/calculo_color/calculo_color.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lee_fichero.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/calculo_color/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pruebas.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/others/mainprueba.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/others/mainprueba.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test1/pruebas.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/test1/pruebas.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
