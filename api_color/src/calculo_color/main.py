@@ -2,10 +2,10 @@
 """
 Examples of plots and calculations using the tmm package.
 """
-from numpy import pi, linspace, inf, array
-from scipy.interpolate import interp1d
-import matplotlib.pyplot as plt
-from calculo_color import calcula_rgb
+from matplotlib import pyplot as plt
+from numpy import pi, linspace, inf
+from src.calculo_color import calcula_rgb
+from src.lee_fichero import leer_fichero
 
 try:
     import colorpy.illuminants
@@ -36,26 +36,38 @@ def sample5():
     # Crystalline silicon refractive index. Data from Palik via
     # http://refractiveindex.info, I haven't checked it, but this is just for
     # demonstration purposes anyway.
+    '''
     Si_n_data = [[400, 5.57 + 0.387j],
-                 [450, 4.67 + 0.145j],
-                 [500, 4.30 + 7.28e-2j],
-                 [550, 4.08 + 4.06e-2j],
-                 [600, 3.95 + 2.57e-2j],
-                 [650, 3.85 + 1.64e-2j],
-                 [700, 3.78 + 1.26e-2j]]
+                   [450, 4.67 + 0.145j],
+               [500, 4.30 + 7.28e-2j],
+             [500, 4.30 + 7.28e-2j],
+            [550, 4.08 + 4.06e-2j],
+                   [650, 3.85 + 1.64e-2j],
+           [700, 3.78 + 1.26e-2j]]
+    
+    
     Si_n_data = array(Si_n_data)
     Si_n_fn = interp1d(Si_n_data[:, 0], Si_n_data[:, 1], kind='linear')
     # SiO2 refractive index (approximate): 1.46 regardless of wavelength
     SiO2_n_fn = lambda wavelength: 1.46
     # air refractive index
+    '''
+    print(124)
     air_n_fn = lambda wavelength: 1
+    print(125)
+    au_n_fn = leer_fichero("au")
+    print(126)
+    si_n_fn = leer_fichero("si")
 
-    n_fn_list = [air_n_fn, SiO2_n_fn, Si_n_fn]
+    print(11)
+
+    n_fn_list = [air_n_fn, si_n_fn, au_n_fn]
     th_0 = 0
-
+    print(12)
     # Print the colors, and show plots, for the special case of 300nm-thick SiO2
-    d_list = [inf, 300, inf]
-    muestra_graficas(n_fn_list, d_list, th_0)
+    d_list = [inf, 100, inf]
+   # muestra_graficas(n_fn_list, d_list, th_0)
+    print(13)
     print('El rgb del sistema es:', calcula_rgb(n_fn_list, d_list, th_0))
     plt.show()
 
