@@ -2,9 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ce6c5ebe-7c3e-4f82-bfb5-d6c76f9888fa" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/calculo_color/lee_fichero.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/others/mainprueba.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test1/pruebas.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lee_fichero.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/lee_fichero.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pruebas.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/pruebas.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/documets/m_Au.txt" beforeDir="false" afterPath="$PROJECT_DIR$/documents/m_Au.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/documets/m_Si (1).txt" beforeDir="false" afterPath="$PROJECT_DIR$/documents/m_Si.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/documets/test.txt" beforeDir="false" afterPath="$PROJECT_DIR$/documents/test.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/calculo_color.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/calculo_color/calculo_color.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lee_fichero.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/calculo_color/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pruebas.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,6 +38,15 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\victo\OneDrive\Documentos\TfgColors\api_color\src\calculo_color" />
+      <recent name="C:\Users\victo\OneDrive\Documentos\TfgColors\api_color\src" />
+      <recent name="C:\Users\victo\OneDrive\Documentos\TfgColors\api_color\documents" />
+      <recent name="C:\Users\victo\OneDrive\Documentos\TfgColors\api_color\src\test1" />
+      <recent name="C:\Users\victo\OneDrive\Documentos\TfgColors\api_color\src\others" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">

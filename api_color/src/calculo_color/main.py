@@ -4,8 +4,8 @@ Examples of plots and calculations using the tmm package.
 """
 from matplotlib import pyplot as plt
 from numpy import pi, linspace, inf
-from src.calculo_color import calcula_rgb
-from src.lee_fichero import leer_fichero
+from src.calculo_color.calculo_color import calcula_rgb
+from src.calculo_color.lee_fichero import leer_fichero
 
 try:
     import colorpy.illuminants

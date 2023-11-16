@@ -10,27 +10,28 @@ from numpy import pi, linspace, inf, array as np
 
 
 def calculaRuta(material):
-    return f"../documents/m_{material}.txt"
+    return f"../../documents/m_{material}.txt"
 
 
 def leer_fichero(material):
+    '''
     print(1)
     if material == "si":
         print(2)
-        df = pd.read_csv("../documents/m_Si.txt", delimiter='\t')
+        df = pd.read_csv("../../documents/m_Si.txt", delimiter='\t')
         print(3)
     elif material == "au":
         print(4)
-        df = pd.read_csv("../documents/m_Au.txt", delimiter='\t')
+        df = pd.read_csv("../../documents/m_Au.txt", delimiter='\t')
     else:
         raise ValueError("Material no compatible")
         print(5)
+'''
 
-
-   # ruta = calculaRuta(material)
-   # df = pd.read_csv(ruta, delimiter='\t')
-    #print(ruta)
-    #print(df)
+    ruta = calculaRuta(material)
+    df = pd.read_csv(ruta, delimiter='\t')
+    print(ruta)
+    print(df)
     df['nk'] = df.apply(lambda fila: complex(fila.iloc[1], fila.iloc[2]), axis=1)
     print(7)
     df['lambda'] = df.apply(lambda fila: fila.iloc[0], axis=1)

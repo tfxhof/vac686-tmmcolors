@@ -1,7 +1,7 @@
 import unittest
-from calculo_color import calcula_rgb
-from src.lee_fichero import leer_fichero
-from numpy import pi, linspace, inf
+from src.calculo_color.calculo_color import calcula_rgb
+from src.calculo_color.calculo_color import leer_fichero
+from numpy import inf
 
 
 class TestMyModule(unittest.TestCase):
@@ -15,8 +15,6 @@ class TestMyModule(unittest.TestCase):
         d_list = [inf, 300, inf]
         resultado_esperado = [1.01182986, 0.77874535, 0.34523162]
         print(25)
-        #resultado_obtenido=(calcula_rgb(n_fn_list, d_list, th_0))
-        #self.assertEqual(calcula_rgb(n_fn_list, d_list, th_0), [1.01182986, 0.77874535, 0.34523162])
         resultado_obtenido = calcula_rgb(n_fn_list, d_list, th_0)
         for esperado, obtenido in zip(resultado_esperado, resultado_obtenido):
             self.assertAlmostEqual(esperado, obtenido, places=5)

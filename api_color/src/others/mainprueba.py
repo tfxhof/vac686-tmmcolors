@@ -1,9 +1,9 @@
-from src.lee_fichero import leer_fichero
+from src.calculo_color.calculo_color import leer_fichero
 
 
 def saludar(nombre):
     """Función que saluda a una persona."""
-    print(f"Hol {nombre}!")
+    print(f"{nombre}!")
 
 
 def main():
