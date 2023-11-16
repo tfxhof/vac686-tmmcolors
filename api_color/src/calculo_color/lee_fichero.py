@@ -34,7 +34,7 @@ def leer_fichero(material):
     print(df)
     df['nk'] = df.apply(lambda fila: complex(fila.iloc[1], fila.iloc[2]), axis=1)
     print(7)
-    df['lambda'] = df.apply(lambda fila: fila.iloc[0], axis=1)
+    df['lambda'] = df.iloc[:,0]
     print(8)
     si_n_fn = interp1d(df['lambda'], df['nk'], kind='linear')
     #Si_n_data = si_n_fn(df['lambda'])
