@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ce6c5ebe-7c3e-4f82-bfb5-d6c76f9888fa" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/others/mainprueba.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/others/mainprueba.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test1/pruebas.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/test1/pruebas.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/calculo_color/calculo_color.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/calculo_color/calculo_color.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/calculo_color/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/calculo_color/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,5 +61,16 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/src/calculo_color/lee_fichero.py</url>
+          <line>34</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

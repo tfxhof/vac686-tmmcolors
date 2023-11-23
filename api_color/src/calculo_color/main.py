@@ -61,15 +61,20 @@ def sample5():
 
     print(11)
 
-    n_fn_list = [air_n_fn, si_n_fn, au_n_fn]
+    n_fn_list = [air_n_fn, si_n_fn, au_n_fn,air_n_fn]
     th_0 = 0
     print(12)
     # Print the colors, and show plots, for the special case of 300nm-thick SiO2
-    d_list = [inf, 100, inf]
+    d_list = [inf, 100,10, inf]
    # muestra_graficas(n_fn_list, d_list, th_0)
     print(13)
+    rgb_values = calcula_rgb(n_fn_list, d_list, th_0)
+    print('El rgb del sistema es:')
+    for value in rgb_values:
+        print(f'{value:.2f}')
+
+
     print('El rgb del sistema es:', calcula_rgb(n_fn_list, d_list, th_0))
-    plt.show()
 
 
 def muestra_graficas(n_fn_list, d_list, th_0):
