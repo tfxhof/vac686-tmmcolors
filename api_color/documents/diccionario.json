@@ -1,11 +1,12 @@
 {
     "silicio":{
-     "id": "1",
-    "label": "Si",
-
+    "id": "1",
+    "label": "Si"
     },
+
     "oro":{
-     "id": "2",
-    "label": "Au",
+    "id": "2",
+    "label": "Au"
     }
+
 }
