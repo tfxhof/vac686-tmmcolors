@@ -1,0 +1,11 @@
+#llamada a getMateriales
+http://127.0.0.1:5000/getMateriales
+
+#llamada a getMaterialesid
+http://127.0.0.1:5000/getMateriales/1
+
+#llamda a getmaterialesNombreid
+http://127.0.0.1:5000/getMateriales/nombre/1/
+
+#llamada a getcolors
+http://127.0.0.1:5000/getColors?materiales=si,au&grosores=inf,100,10

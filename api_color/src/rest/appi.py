@@ -77,8 +77,8 @@ parser.add_argument('grosores', type=str, help='Lista de grosores separados por 
 
 
 
-@api.route('/calcularOperacion')
-class CalcularOperacion(Resource):
+@api.route('/getColors')
+class getColors(Resource):
     def get(self):
         # Analizar los argumentos de la URL
         args = parser.parse_args()
