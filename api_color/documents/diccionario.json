@@ -1,12 +1,12 @@
-{
-    "silicio":{
-    "id": "1",
+[
+    {"nombre": "silicio",
+    "id": 1,
     "label": "Si"
     },
 
-    "oro":{
-    "id": "2",
+    {"nombre": "oro",
+    "id": 2,
     "label": "Au"
     }
 
-}
+]
