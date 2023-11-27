@@ -4,9 +4,9 @@ iluminante D65
 # Caso 1
 d = [inf 100 inf]
 n = [1 m_Si m_Au]
-RGB = [0.7479 0.9396 0.6148]
+RGB = [190.71, 239.59, 156.77]
 
 # Caso 2
 d = [inf 100 10 inf]
 n = [1 m_Si m_Au 1]
-RGB = [0.6834 0.8718 0.5857]
+RGB = [174.26 174.26 149.35]
