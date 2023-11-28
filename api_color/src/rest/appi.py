@@ -3,7 +3,6 @@ import os
 
 from flask import Flask, send_file, jsonify
 from flask_restx import Resource, Api, reqparse
-from numpy import inf
 
 from src.calculo_color.calculo_color import calcula_rgb
 from src.calculo_color.lee_fichero import leer_fichero
