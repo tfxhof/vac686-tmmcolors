@@ -24,6 +24,26 @@ class obtenerMateriales(Resource):
             # Si el archivo no existe, retorna un mensaje de error
             return {'error': 'Archivo JSON no encontrado'}, 404
 
+@api.route('/getMateriales/nombres')
+class obtenerNombreMateriales(Resource):
+    def get(self):
+        ruta_json = os.path.join(os.path.dirname(__file__), '..', '..', 'documents', 'diccionario.json')
+        if os.path.exists(ruta_json):
+            with open(ruta_json, 'r') as file:
+                contenido = json.load(file)
+                print("Contenido del archivo JSON:", contenido)  # Impresión para depuración
+
+                if contenido:
+                    # Obtener el primer elemento de la lista (índice 0)
+                    nombres = [elemento["nombre"] for elemento in contenido]
+                    return jsonify(nombres)
+
+
+
+        else:
+            # Si el archivo no existe, retorna un mensaje de error
+            return {'error': 'Archivo JSON no encontrado'}, 404
+
 
 @api.route('/getMateriales/<int:objeto_id>')
 class ObtenerMaterialPorID(Resource):
