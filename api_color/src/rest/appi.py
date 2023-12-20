@@ -3,13 +3,25 @@ import os
 
 from flask import Flask, send_file, jsonify
 from flask_restx import Resource, Api, reqparse
+from flask_cors import CORS
+
 
 from src.calculo_color.calculo_color import calcula_rgb
 from src.calculo_color.lee_fichero import leer_fichero
 
+from http.server import SimpleHTTPRequestHandler
+from socketserver import TCPServer
+
 app = Flask(__name__)
 api = Api(app)
+CORS(app)  # Habilita CORS para todas las rutas
+
 json_directory = os.path.join(os.path.dirname(__file__), '..', '..', 'documents')
+
+
+# Define el manejador de solicitudes HTTP
+handler = SimpleHTTPRequestHandler
+
 
 
 @api.route('/getMateriales/')
@@ -24,7 +36,7 @@ class obtenerMateriales(Resource):
             # Si el archivo no existe, retorna un mensaje de error
             return {'error': 'Archivo JSON no encontrado'}, 404
 
-@api.route('/getMateriales/nombres')
+@api.route('/getMateriales/label')
 class obtenerNombreMateriales(Resource):
     def get(self):
         ruta_json = os.path.join(os.path.dirname(__file__), '..', '..', 'documents', 'diccionario.json')
@@ -35,7 +47,7 @@ class obtenerNombreMateriales(Resource):
 
                 if contenido:
                     # Obtener el primer elemento de la lista (índice 0)
-                    nombres = [elemento["nombre"] for elemento in contenido]
+                    nombres = [elemento["label"] for elemento in contenido]
                     return jsonify(nombres)
 
 
@@ -78,7 +90,7 @@ class ObtenerNombredeMaterialPorID(Resource):
 
                 objeto = next((item for item in data if item["id"] == objeto_id), None)
             if objeto:
-                return jsonify(objeto["nombre"])
+                return jsonify(objeto["label"])
             else:
                 # Si el objeto no existe, se retorna un mensaje de error con código 404
                 return {'error': 'Objeto no encontrado'}, 404
@@ -138,12 +150,21 @@ class getColors(Resource):
 
         # Crear un resultado con las variables individuales
         resultado = {
-            'material1': material1,
-            'material2': material2,
-            'resultado': rgb_values_list
+            'rgb': rgb_values_list
         }
         return jsonify(resultado)
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    httpd = TCPServer(("", 8000), handler)
+    print("Servidor en el puerto 8000")
+
+    # Ejecuta Flask en segundo plano
+    from threading import Thread
+
+    thread = Thread(target=app.run, kwargs={'host': '0.0.0.0', 'port': 5000})
+    thread.daemon = True
+    thread.start()
+
+    # Inicia el servidor HTTP
+    httpd.serve_forever()

@@ -1,12 +1,8 @@
 [
-    {"nombre": "silicio",
-    "id": 1,
-    "label": "Si"
-    },
+    {"label": "Si", "id": 1},
 
-    {"nombre": "oro",
-    "id": 2,
-    "label": "Au"
-    }
+    {"label": "Au", "id": 2},
+
+    {"label": "Ag", "id": 3}
 
 ]
