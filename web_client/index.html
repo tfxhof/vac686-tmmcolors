@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tabla Dinámica</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="app">
+    <table>
+      <thead>
+        <tr>
+          <th>Layer</th>
+          <th>Material</th>
+          <th>Thickness 
+		<select class="dropdown">
+                	<option value="opcion1">nm</option>
+              		<option value="opcion2">cm</option>
+             		<option value="opcion3">mm</option>
+           	 </select>
+	  </th>
+	  <th>Options</th>
+        </tr>
+      </thead>
+      <tbody id="table-body">
+        <!-- Filas iniciales -->
+        <tr>
+          <td>Medium</td>
+          <td>Air</td>
+          <td></td>
+
+          <td>
+            <button class="add-row-button" onclick="agregarFilaDebajo(this.parentElement.parentElement)">+</button>
+          </td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td><select id="materiales"></select>
+          </td>
+          <td><input type="text" placeholder="150"></td>
+          <td>
+            <button class="delete-button" onclick="eliminarFila(this.parentElement.parentElement)">✕</button>
+
+            <button class="add-row-button" onclick="agregarFilaDebajo(this.parentElement.parentElement)">+</button>
+          </td>
+        </tr>
+        <tr>
+          <td>Substrate</td>
+          <td>Si</td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+  <button id="mostrar-colores-button">Mostrar Colores</button>
+  <div id="color-div" style="width: 100px; height: 100px; border: 1px solid #000;"></div>
+
+  <div id="resultado-json"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
+

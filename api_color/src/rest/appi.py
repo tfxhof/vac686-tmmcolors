@@ -108,44 +108,38 @@ parser.add_argument('grosores', type=str, help='Lista de grosores separados por 
 
 
 
-@api.route('/getColors')
+
+
+@api.route('/getColors/<materiales>/<grosores>')
 class getColors(Resource):
-    def get(self):
-        # Analizar los argumentos de la URL
-        args = parser.parse_args()
-        # Extraer la lista de materiales y dividirla en una lista
-        materiales_param = args['materiales']
-        materiales = materiales_param.split(',') if materiales_param else []
+    def get(self, materiales, grosores):
+        # Dividir la cadena de materiales en una lista
+        materiales_list = materiales.split(',') if materiales else []
 
-        grosores_param = args['grosores']
-        grosores = []
-
-        if grosores_param:
-            grosores_list = grosores_param.split(',')
-            for g in grosores_list:
-                try:
-                    grosores.append(float(g))
-                except ValueError:
-                    return jsonify({'error': f'El grosor "{g}" no es un número válido'})
-
-        if len(materiales) < 2:
+        if len(materiales_list) < 2:
             return jsonify({'error': 'Se requieren al menos dos materiales'})
 
-        material1 = materiales[0]
-        material2 = materiales[1]
+        # Crear una lista de funciones de índice de refracción para los materiales
+        n_fn_list = [leer_fichero(material) for material in materiales_list]
 
-        grosor1 = grosores[0]
-        grosor2 = grosores[1]
-        grosor3 = grosores[2]
-
-        si_n_fn = leer_fichero(material1)
-        au_n_fn = leer_fichero(material2)
+        # Crear una función de índice de refracción para el aire
         air_n_fn = lambda wavelength: 1
+        si_n_fn = leer_fichero('si')
 
-        n_fn_list = [air_n_fn, si_n_fn, au_n_fn, air_n_fn]
+        # Calcular los valores RGB
         th_0 = 0
-        d_list = [grosor1, grosor2, grosor3, grosor1]
-        rgb_values = calcula_rgb(n_fn_list, d_list, th_0)
+
+        # Dividir la cadena de grosores en una lista de números
+        grosores_list = [float(g) if g != 'inf' else float('inf') for g in grosores.split(',')]
+
+
+        # Verificar que haya al menos dos grosores
+        if len(grosores_list) < 2:
+            return jsonify({'error': 'Se requieren al menos dos grosores'})
+
+        # Calcular los valores RGB
+        d_list = [float('inf')]+grosores_list + [float('inf')]  # Agregar infinito al final para el último material
+        rgb_values = calcula_rgb([air_n_fn] + n_fn_list + [si_n_fn], d_list, th_0)
         rgb_values_list = rgb_values.tolist()
 
         # Crear un resultado con las variables individuales

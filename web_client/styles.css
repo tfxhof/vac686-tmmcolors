@@ -1,0 +1,54 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+#app {
+  text-align: center;
+}
+.delete-button {
+  color: red;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: inherit;
+}
+.add-row-button {
+  color: green;
+  background: none;
+  border: none;
+  font-size: inherit;
+  cursor: pointer;
+}
+.column3-text {
+  margin-right: 10px; /* Ajusta el espacio entre el texto y el desplegable según tus preferencias */
+}
+
+.dropdown {
+  /* Estilos para el desplegable, puedes personalizar según tus preferencias */
+}
+table {
+  border-collapse: collapse;
+  width: 90%;
+  margin-bottom: 20px auto;
+}
+
+table, th, td {
+  border: 15px solid #ddd;
+}
+
+th, td {
+  padding: 20px;
+  text-align: center;
+}
+
+button {
+  padding: 15px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
