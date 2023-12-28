@@ -1,3 +1,4 @@
 # Ignorar archivos generados por pytest
 
 .pytest_cache/
+./pyc/
