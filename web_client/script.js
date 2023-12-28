@@ -26,7 +26,7 @@ function agregarFilaDebajo(row) {
   const thicknessCell = document.createElement('td');
   const thicknessInput = document.createElement('input');
   thicknessInput.type = 'text';
-  thicknessInput.placeholder = 'Ingrese el espesor';
+  thicknessInput.placeholder = 'input thickness';
   thicknessCell.appendChild(thicknessInput);
   newRow.appendChild(thicknessCell);
 
