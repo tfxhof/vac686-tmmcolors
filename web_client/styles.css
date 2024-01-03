@@ -5,50 +5,132 @@ body {
   align-items: center;
   justify-content: center;
   height: 100vh;
+  background-color: #b9eeb6;
+  
 }
 
 #app {
   text-align: center;
+  margin-top: 0px;
 }
-.delete-button {
-  color: red;
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-size: inherit;
+
+#app h1 {
+  position: relative;
+  top: 00px; /* Ajusta según sea necesario */
+  left: 100px; /* Centra horizontalmente en el 50% del contenedor padre */
+  margin-top: 00px;
+  font-style: italic;
+  color:#422178;
+
 }
-.add-row-button {
-  color: green;
-  background: none;
-  border: none;
-  font-size: inherit;
+
+#app h2 {
+  position: absolute;
+  top: 150px; /* Ajusta según sea necesario */
+  left: 40px;
+  margin-top: 50px;
+  font-style: italic;
+  color:#050505;
+  max-width: 300px; /* Ajusta el ancho máximo según sea necesario */
+  word-wrap: break-word;
+}
+
+button.delete-button,
+button.add-row-button {
+  padding: 5px; /* Ajusta el relleno según sea necesario */
+  font-size: 30px; /* Ajusta el tamaño de la fuente según sea necesario */
+  margin: 0; /* Elimina cualquier margen externo */
+  border: none; /* Elimina el borde (puedes ajustarlo según sea necesario) */
+  background: none; /* Elimina cualquier fondo */
   cursor: pointer;
+  color: red; /* Color del botón delete */
+}
+
+button.add-row-button {
+  color: green; /* Color del botón add row */
+  font-size: 35px;
 }
 .column3-text {
   margin-right: 10px; /* Ajusta el espacio entre el texto y el desplegable según tus preferencias */
+
 }
 
-.dropdown {
-  /* Estilos para el desplegable, puedes personalizar según tus preferencias */
-}
 table {
+  position: relative;
+   margin-top: 80px;
+  left: 150px;
   border-collapse: collapse;
-  width: 90%;
+  font-size: 20px;
+  width: 800px;
   margin-bottom: 20px auto;
+  overflow-y: auto;
+  background-color: #dee9db;
 }
 
 table, th, td {
-  border: 15px solid #ddd;
+  border: 5px solid #6f9a76;
 }
 
 th, td {
-  padding: 20px;
+  padding: 1px;
   text-align: center;
+  color:#259
 }
+
+
 
 button {
   padding: 15px;
   font-size: 15px;
   cursor: pointer;
+  margin-left: 200px;
+
+}
+#mostrar-colores-button {
+  padding: 10px 20px; /* Ajusta el relleno del botón según sea necesario */
+  margin-top: 130px; /* Ajusta el margen superior según sea necesario */
+  border: 6px solid #000a04;
+  background-color: #dbdedb;
+  font-size: 20px;
+
+
+}
+
+#color-div {
+  width: 100px;
+  height: 100px;
+  border: 300px solid #ec1515;
+  margin-top: 130px; 
+  background-color: #ffffff;
+}
+
+#resultado-json {
+  margin-top: 130px; 
+  font-size: 30px;
+
+
+}
+
+.corner-image {
+  position: absolute;
+  top: 40px; /* Ajusta según sea necesario */
+  right: 40px; /* Ajusta según sea necesario */
+  width: 250px; /* Ajusta el ancho según sea necesario */
+  height: auto;
+  border-radius: 50%;
+}
+
+td input[type="text"] {
+  font-size: 15px;
+  color:rgb(67, 50, 3);
+  background-color: #ebd3af;
+
+}
+
+td select {
+  font-size: 15px;
+  color:rgb(67, 50, 3);
+  background-color: #eccad9;
+
 }
 
