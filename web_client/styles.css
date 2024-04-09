@@ -5,67 +5,91 @@ body {
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background-color: #b9eeb6;
-  
+  background-color: #f8faf8;
 }
 
+/* Contenedor principal */
 #app {
   text-align: center;
   margin-top: 0px;
+  display: flex;
+  flex-direction: column; /* Cambiado a columna */
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #f8faf8;
+
 }
 
+/* Encabezado H1 */
 #app h1 {
+  /* Estilos anteriores */
   position: relative;
-  top: 00px; /* Ajusta según sea necesario */
-  left: 100px; /* Centra horizontalmente en el 50% del contenedor padre */
-  margin-top: 00px;
+  top: 0;
+  left: 0;
+  margin-top: 0;
   font-style: italic;
-  color:#422178;
-
+  color: #422178;
 }
 
+/* Encabezado H2 */
 #app h2 {
-  position: absolute;
-  top: 150px; /* Ajusta según sea necesario */
-  left: 40px;
-  margin-top: 50px;
+  /* Estilos anteriores */
+  position: relative;
+  top: 5%;
+  left: 5%;
+  margin-top: 5%;
   font-style: italic;
-  color:#050505;
-  max-width: 300px; /* Ajusta el ancho máximo según sea necesario */
+  color: #050505;
+  max-width: 90%;
   word-wrap: break-word;
 }
+#app h2 .add-layer {
+  font-size: 30px; /* Tamaño de fuente para el símbolo "+" */
+  color: green; /* Color verde para el símbolo "+" */
+}
 
+#app h2 .delete-layer {
+  font-size: 30px; /* Tamaño de fuente para el símbolo "x" */
+  color: red; /* Color rojo para el símbolo "x" */
+}
+
+/* Botones */
 button.delete-button,
 button.add-row-button {
-  padding: 5px; /* Ajusta el relleno según sea necesario */
-  font-size: 30px; /* Ajusta el tamaño de la fuente según sea necesario */
-  margin: 0; /* Elimina cualquier margen externo */
-  border: none; /* Elimina el borde (puedes ajustarlo según sea necesario) */
-  background: none; /* Elimina cualquier fondo */
+  /* Estilos anteriores */
+  color: red;
+  padding: 5px;
+  font-size: 2vw;
+  margin: 0;
+  border: none;
+  background: none;
   cursor: pointer;
-  color: red; /* Color del botón delete */
 }
 
 button.add-row-button {
-  color: green; /* Color del botón add row */
-  font-size: 35px;
-}
-.column3-text {
-  margin-right: 10px; /* Ajusta el espacio entre el texto y el desplegable según tus preferencias */
-
+  color: green;
+  font-size: 2.5vw;
 }
 
+/* Estilos de la tabla */
 table {
+  /* Estilos anteriores */
   position: relative;
-   margin-top: 80px;
-  left: 150px;
+  margin-top: 5%;
+  left: 5%;
+  margin-right: 400px;
   border-collapse: collapse;
-  font-size: 20px;
-  width: 800px;
-  margin-bottom: 20px auto;
+  font-size: 1.5vw;
+  width: 80%;
+  margin-bottom: 5% auto;
   overflow-y: auto;
-  background-color: #dee9db;
+  background-color: #f7faf6f0;
 }
+
+/* Otros estilos que puedas necesitar ajustar */
+/* ... */
+
 
 table, th, td {
   border: 5px solid #6f9a76;
@@ -83,33 +107,39 @@ button {
   padding: 15px;
   font-size: 15px;
   cursor: pointer;
-  margin-left: 200px;
+  margin-left: 00px;
 
 }
+
 #mostrar-colores-button {
-  padding: 10px 20px; /* Ajusta el relleno del botón según sea necesario */
-  margin-top: 130px; /* Ajusta el margen superior según sea necesario */
+  position:absolute;
+  right: 0px; /* Ajusta según sea necesario */
+  padding: 20px;
+  margin-top: 300px;
   border: 6px solid #000a04;
   background-color: #dbdedb;
-  font-size: 20px;
-
-
+  font-size: 30px;
+  width: 300px; /* Ajusta el ancho según sea necesario */
+  text-align: center; /* Centra el texto horizontalmente */
 }
 
 #color-div {
-  width: 100px;
-  height: 100px;
-  border: 300px solid #ec1515;
-  margin-top: 130px; 
+  position:absolute;
+  right: 80px; /* Ajusta según sea necesario */
+  margin-top: 580px;
+  padding: 40px;
   background-color: #ffffff;
 }
 
 #resultado-json {
-  margin-top: 130px; 
-  font-size: 30px;
-
-
+  position:absolute;
+  right: 40px; /* Ajusta según sea necesario */
+  margin-top: 790px;
+  padding: 50px;
+  font-size: 20px; /* Reducido el tamaño de fuente */
 }
+
+
 
 .corner-image {
   position: absolute;
@@ -133,4 +163,6 @@ td select {
   background-color: #eccad9;
 
 }
+
+
 

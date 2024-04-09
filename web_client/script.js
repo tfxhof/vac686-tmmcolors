@@ -112,11 +112,14 @@ function eliminarFila(row) {
 function cargarMateriales(selectElement) {
   // Realizar la solicitud al servidor
   fetch('http://localhost:5000/getMateriales/label')
-    .then(response => response.json())
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('No se pudo cargar los materiales');
+      }
+      return response.json();
+    })
     .then(data => {
-      // Obtener el elemento select del DOM
-      //const select = document.getElementById('materiales');
-
+      // Limpiar el contenido previo del elemento select
       selectElement.innerHTML = '';
 
       // Iterar sobre los materiales y agregar cada uno al desplegable
@@ -129,6 +132,28 @@ function cargarMateriales(selectElement) {
     })
     .catch(error => console.error('Error al cargar materiales:', error));
 }
+function changeInputType(selectElement) {
+  const selectedValue = selectElement.value;
+  const parentCell = selectElement.parentElement;
+  let inputField = parentCell.querySelector('input[type="text"]');
+  
+  if (selectedValue === 'numeric') {
+    // Si se selecciona "Numeric Value", mostrar el campo de entrada de texto
+    if (!inputField) {
+      inputField = document.createElement('input');
+      inputField.type = 'text';
+      inputField.placeholder = 'Enter numeric value';
+      parentCell.appendChild(inputField);
+    }
+  } else {
+    // Si se selecciona "Air", eliminar el campo de entrada de texto si existe
+    if (inputField) {
+      parentCell.removeChild(inputField);
+    }
+  }
+}
+
+
 
 function obtenerColores() {
   const resultadoJsonDiv = document.getElementById('resultado-json');
@@ -140,26 +165,34 @@ function obtenerColores() {
   const materialesArray = [];
   const grosoresArray = [];
 
-  filas.forEach((fila, index) => {
-    // Ignorar la primera fila
-    if (index === 0 ){
-      
-      return;  // Saltar al siguiente ciclo
-    }
+
+ 
 
     // Obtener el material de la fila
-    const materialSelect = fila.querySelector('select');
-    const materialSeleccionado = materialSelect ? materialSelect.value : 'si';
-    materialesArray.push(materialSeleccionado);
-    const grosorInput = fila.querySelector('input[type="text"]');
-    const grosorIngresado = grosorInput ? (grosorInput.value.trim() === '' ? 2000 : grosorInput.value) : 2000;
-    grosoresArray.push(grosorIngresado);
-    
-    if (index === filas.length - 1) {
-      return false; // Terminar el bucle forEach
-    }
-    
-  });
+    filas.forEach((fila, index) => {
+      if (index === 0) {
+        // Si es la primera fila, verificar el campo y agregar a los arrays según corresponda
+        const airNumericInput = fila.querySelector('input[type="text"]');
+        const airNumericValue = airNumericInput ? airNumericInput.value.trim() : '';
+        const selectedValue = airNumericValue ? airNumericValue : 'Air'; // Si hay un valor numérico, usarlo; de lo contrario, usar 'Air'
+        materialesArray.push(selectedValue);
+        // No hay grosor en la primera fila
+      } else {
+      // Obtener el material de la fila
+      const materialSelect = fila.querySelector('select');
+      const materialSeleccionado = materialSelect ? materialSelect.value : 'si'; // Valor predeterminado 'si' si no se encuentra ningún elemento <select>
+      materialesArray.push(materialSeleccionado);
+      }
+    });
+  // Iterar sobre todas las filas de la tabla para procesar el grosor, excepto la última fila
+  for (let i = 1; i < filas.length - 1; i++) {
+      const fila = filas[i];
+      // Obtener el grosor de la fila
+      const grosorInput = fila.querySelector('input[type="text"]');
+      const grosorIngresado = grosorInput ? (grosorInput.value.trim() === '' ? 2000 : grosorInput.value) : 2000;
+      grosoresArray.push(grosorIngresado);
+  }
+
 
   // Hacer la solicitud al servidor con los valores obtenidos
   fetch(`http://localhost:5000/getColors/${materialesArray.join(',')}/${grosoresArray.join(',')}`)
@@ -169,12 +202,30 @@ function obtenerColores() {
       }
       return response.json();
     })
-    .then(data => {
-      // Crear un formato personalizado para mostrar el objeto JSON
-      let formattedResult = '';
-      for (const key in data) {
-        formattedResult += `${key}: ${data[key]}\n`;
-      }
+
+  .then(data => {
+    let formattedResult = '';  // Variable para almacenar el resultado
+
+  // Crear un formato personalizado para mostrar el objeto JSON
+  let rgbValue = '';
+
+  for (const key in data) {
+    // Reemplazar "rgb" por "RGB" en el nombre de la propiedad
+    const propertyName = key.toLowerCase() === 'rgb' ? 'RGB' : key;
+
+    if (propertyName.toLowerCase() === 'rgb') {
+      rgbValue = `{${data[key].join(',')}}`;
+    } else {
+      formattedResult += `"${propertyName}": ${data[key]}, `;
+    }
+  }
+
+  // Construir el resultado final
+  formattedResult = `RGB: ${rgbValue}`;
+
+
+  // Utilizar o almacenar formattedResult según sea necesario
+
 
       // Mostrar los datos en formato personalizado en la interfaz
       resultadoJsonDiv.textContent = formattedResult;
@@ -218,6 +269,8 @@ document.addEventListener('DOMContentLoaded', function() {
   const addButton = document.getElementById('add-row-button');
   const mostrarColoresButton = document.getElementById('mostrar-colores-button');
   const firstSelect = document.getElementById('materiales');
+  const secondSelect = document.getElementById('sustratos');
+
 
   if (addButton) {
   addButton.onclick = function() {
@@ -229,6 +282,8 @@ document.addEventListener('DOMContentLoaded', function() {
   
 };
   cargarMateriales(firstSelect);
+  cargarMateriales(secondSelect);
+
    mostrarColoresButton.onclick = obtenerColores;
   
 

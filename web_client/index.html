@@ -9,8 +9,9 @@
 <body>
   <div id="app">
     <img src="image.png" alt="Dibujo en la esquina superior derecha" class="corner-image">
-    <h1>CALCULATE RGB COLOR </h1>
-    <h2 class="description">Select the material from the dropdown, enter the thickness in the designated space, and press the button to obtain the RGB color.<br><br> Press the green + to add a layer below or the red x to delete the layer.</h2>
+    <h1>REFECTIVE RGB COLOR CALCULATION </h1>
+    <h2 class="description">Select the material from the dropdown, enter the thickness in the designated space, and press the button to obtain the RGB color.   Controls:
+      <br><br> <span class="add-layer">+</span>: add a layer below <br><br> <span class="delete-layer">x</span>: delete the layer
 
     <table>
       <thead>
@@ -20,15 +21,20 @@
           <th>Thickness (nm) </th>
 		
 	          
-	        <th>Options</th>
+	        <th>Controls</th>
         </tr>
       </thead>
       <tbody id="table-body">
         <!-- Filas iniciales -->
         <tr>
           <td>Medium</td>
-          <td>Air</td>
-          <td></td>
+          <td>
+            <select onchange="changeInputType(this)">
+              <option value="air">Air</option> 
+              <option value="numeric">Numeric Value</option>
+            </select>
+          </td>
+         <td></td>
 
           <td>
             <button class="add-row-button" onclick="agregarFilaDebajo(this.parentElement.parentElement)">+</button>
@@ -36,7 +42,7 @@
         </tr>
         <tr>
           <td>1</td>
-          <td><select id="materiales"></select>
+          <td><select id="materiales" class="material-select"></select>
           </td>
           <td><input type="text" placeholder="150"></td>
           <td>
@@ -47,8 +53,8 @@
         </tr>
         <tr>
           <td>Substrate</td>
-          <td>Si</td>
-          <td></td>
+          <td><select id="sustratos" class="material-select"></select>
+            <td></td>
         </tr>
       </tbody>
     </table>

@@ -116,15 +116,26 @@ class getColors(Resource):
         # Dividir la cadena de materiales en una lista
         materiales_list = materiales.split(',') if materiales else []
 
-        if len(materiales_list) < 2:
+        if len(materiales_list) < 1:
             return jsonify({'error': 'Se requieren al menos dos materiales'})
+        primer_material = materiales_list.pop(0)
 
         # Crear una lista de funciones de índice de refracción para los materiales
         n_fn_list = [leer_fichero(material) for material in materiales_list]
 
+
+        if primer_material.lower() == 'air':
+            n_fn = lambda wavelength: 1
+        else:
+            try:
+                valor_numerico = float(primer_material)
+                n_fn = lambda wavelength: valor_numerico
+            except ValueError:
+                return jsonify({'error': 'El primer material no es válido'})
+
         # Crear una función de índice de refracción para el aire
-        air_n_fn = lambda wavelength: 1
-        si_n_fn = leer_fichero('si')
+        #air_n_fn = lambda wavelength: 1
+        #si_n_fn = leer_fichero('si')
 
         # Calcular los valores RGB
         th_0 = 0
@@ -134,12 +145,12 @@ class getColors(Resource):
 
 
         # Verificar que haya al menos dos grosores
-        if len(grosores_list) < 2:
+        if len(grosores_list) < 1:
             return jsonify({'error': 'Se requieren al menos dos grosores'})
 
         # Calcular los valores RGB
         d_list = [float('inf')]+grosores_list + [float('inf')]  # Agregar infinito al final para el último material
-        rgb_values = calcula_rgb([air_n_fn] + n_fn_list + [si_n_fn], d_list, th_0)
+        rgb_values = calcula_rgb([n_fn] + n_fn_list, d_list, th_0)
         rgb_values_list = rgb_values.tolist()
 
         # Crear un resultado con las variables individuales
