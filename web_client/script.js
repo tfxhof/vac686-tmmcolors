@@ -111,7 +111,7 @@ function eliminarFila(row) {
 
 function cargarMateriales(selectElement) {
   // Realizar la solicitud al servidor
-  fetch('http://localhost:5000/getMateriales/label')
+  fetch('http://localhost:5000/materiales/label')
     .then(response => {
       if (!response.ok) {
         throw new Error('No se pudo cargar los materiales');
@@ -195,7 +195,7 @@ function obtenerColores() {
 
 
   // Hacer la solicitud al servidor con los valores obtenidos
-  fetch(`http://localhost:5000/getColors/${materialesArray.join(',')}/${grosoresArray.join(',')}`)
+  fetch(`http://localhost:5000/colors/${materialesArray.join(',')}/${grosoresArray.join(',')}`)
     .then(response => {
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);

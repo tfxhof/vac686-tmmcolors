@@ -5,7 +5,6 @@ from flask import Flask, send_file, jsonify
 from flask_restx import Resource, Api, reqparse
 from flask_cors import CORS
 
-
 from src.calculo_color.calculo_color import calcula_rgb
 from src.calculo_color.lee_fichero import leer_fichero
 
@@ -18,13 +17,11 @@ CORS(app)  # Habilita CORS para todas las rutas
 
 json_directory = os.path.join(os.path.dirname(__file__), '..', '..', 'documents')
 
-
 # Define el manejador de solicitudes HTTP
 handler = SimpleHTTPRequestHandler
 
 
-
-@api.route('/getMateriales/')
+@api.route('/materiales/')
 class obtenerMateriales(Resource):
     def get(self):
         ruta_json = os.path.join(os.path.dirname(__file__), '..', '..', 'documents', 'diccionario.json')
@@ -36,7 +33,8 @@ class obtenerMateriales(Resource):
             # Si el archivo no existe, retorna un mensaje de error
             return {'error': 'Archivo JSON no encontrado'}, 404
 
-@api.route('/getMateriales/label')
+
+@api.route('/materiales/label')
 class obtenerNombreMateriales(Resource):
     def get(self):
         ruta_json = os.path.join(os.path.dirname(__file__), '..', '..', 'documents', 'diccionario.json')
@@ -57,7 +55,7 @@ class obtenerNombreMateriales(Resource):
             return {'error': 'Archivo JSON no encontrado'}, 404
 
 
-@api.route('/getMateriales/<int:objeto_id>')
+@api.route('/materiales/<int:objeto_id>')
 class ObtenerMaterialPorID(Resource):
     def get(self, objeto_id):
         print(1)
@@ -79,7 +77,7 @@ class ObtenerMaterialPorID(Resource):
             return {'error': 'Archivo JSON no encontrado'}, 404
 
 
-@api.route('/getMateriales/nombre/<int:objeto_id>/')
+@api.route('/materiales/nombre/<int:objeto_id>/')
 class ObtenerNombredeMaterialPorID(Resource):
     def get(self, objeto_id):
         print(1)
@@ -107,11 +105,8 @@ parser.add_argument('materiales', type=str, help='Lista de materiales separados 
 parser.add_argument('grosores', type=str, help='Lista de grosores separados por comas')
 
 
-
-
-
-@api.route('/getColors/<materiales>/<grosores>')
-class getColors(Resource):
+@api.route('/colors/<materiales>/<grosores>')
+class get_colors(Resource):
     def get(self, materiales, grosores):
         # Dividir la cadena de materiales en una lista
         materiales_list = materiales.split(',') if materiales else []
@@ -123,7 +118,6 @@ class getColors(Resource):
         # Crear una lista de funciones de índice de refracción para los materiales
         n_fn_list = [leer_fichero(material) for material in materiales_list]
 
-
         if primer_material.lower() == 'air':
             n_fn = lambda wavelength: 1
         else:
@@ -134,8 +128,8 @@ class getColors(Resource):
                 return jsonify({'error': 'El primer material no es válido'})
 
         # Crear una función de índice de refracción para el aire
-        #air_n_fn = lambda wavelength: 1
-        #si_n_fn = leer_fichero('si')
+        # air_n_fn = lambda wavelength: 1
+        # si_n_fn = leer_fichero('si')
 
         # Calcular los valores RGB
         th_0 = 0
@@ -143,13 +137,12 @@ class getColors(Resource):
         # Dividir la cadena de grosores en una lista de números
         grosores_list = [float(g) if g != 'inf' else float('inf') for g in grosores.split(',')]
 
-
         # Verificar que haya al menos dos grosores
         if len(grosores_list) < 1:
             return jsonify({'error': 'Se requieren al menos dos grosores'})
 
         # Calcular los valores RGB
-        d_list = [float('inf')]+grosores_list + [float('inf')]  # Agregar infinito al final para el último material
+        d_list = [float('inf')] + grosores_list + [float('inf')]  # Agregar infinito al final para el último material
         rgb_values = calcula_rgb([n_fn] + n_fn_list, d_list, th_0)
         rgb_values_list = rgb_values.tolist()
 

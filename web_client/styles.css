@@ -5,7 +5,7 @@ body {
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background-color: #f8faf8;
+  background-color: #ffffff;
 }
 
 /* Contenedor principal */
@@ -17,7 +17,7 @@ body {
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background-color: #f8faf8;
+  background-color: #ffffff;
 
 }
 
@@ -25,7 +25,6 @@ body {
 #app h1 {
   /* Estilos anteriores */
   position: relative;
-  top: 0;
   left: 0;
   margin-top: 0;
   font-style: italic;
@@ -36,9 +35,8 @@ body {
 #app h2 {
   /* Estilos anteriores */
   position: relative;
-  top: 5%;
-  left: 5%;
-  margin-top: 5%;
+  left: 0;
+  margin-top: 2%;
   font-style: italic;
   color: #050505;
   max-width: 90%;
@@ -77,11 +75,11 @@ table {
   /* Estilos anteriores */
   position: relative;
   margin-top: 5%;
-  left: 5%;
+  left: 2%;
   margin-right: 400px;
   border-collapse: collapse;
   font-size: 1.5vw;
-  width: 80%;
+  width: 83%;
   margin-bottom: 5% auto;
   overflow-y: auto;
   background-color: #f7faf6f0;
@@ -113,28 +111,28 @@ button {
 
 #mostrar-colores-button {
   position:absolute;
-  right: 0px; /* Ajusta según sea necesario */
-  padding: 20px;
-  margin-top: 300px;
+  right: 8%; /* Ajusta según sea necesario */
+  padding: 10px;
+  margin-top: 100px;
   border: 6px solid #000a04;
   background-color: #dbdedb;
   font-size: 30px;
-  width: 300px; /* Ajusta el ancho según sea necesario */
+  width: 180px; /* Ajusta el ancho según sea necesario */
   text-align: center; /* Centra el texto horizontalmente */
 }
 
 #color-div {
   position:absolute;
-  right: 80px; /* Ajusta según sea necesario */
-  margin-top: 580px;
+  right: 8%; /* Ajusta según sea necesario */
+  margin-top: 380px;
   padding: 40px;
   background-color: #ffffff;
 }
 
 #resultado-json {
   position:absolute;
-  right: 40px; /* Ajusta según sea necesario */
-  margin-top: 790px;
+  right: 5%; /* Ajusta según sea necesario */
+  margin-top: 590px;
   padding: 50px;
   font-size: 20px; /* Reducido el tamaño de fuente */
 }
@@ -143,7 +141,7 @@ button {
 
 .corner-image {
   position: absolute;
-  top: 40px; /* Ajusta según sea necesario */
+  top: 20px; /* Ajusta según sea necesario */
   right: 40px; /* Ajusta según sea necesario */
   width: 250px; /* Ajusta el ancho según sea necesario */
   height: auto;

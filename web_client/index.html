@@ -10,8 +10,8 @@
   <div id="app">
     <img src="image.png" alt="Dibujo en la esquina superior derecha" class="corner-image">
     <h1>REFECTIVE RGB COLOR CALCULATION </h1>
-    <h2 class="description">Select the material from the dropdown, enter the thickness in the designated space, and press the button to obtain the RGB color.   Controls:
-      <br><br> <span class="add-layer">+</span>: add a layer below <br><br> <span class="delete-layer">x</span>: delete the layer
+    <h2 class="description">Select the material from the dropdown, enter the thickness in the <br> designated space, and press the button to obtain the RGB color.
+      
 
     <table>
       <thead>
@@ -21,7 +21,7 @@
           <th>Thickness (nm) </th>
 		
 	          
-	        <th>Controls</th>
+	        <th> <span class="add-layer">+</span>: add / <span class="delete-layer">x</span>: delete layer</th>
         </tr>
       </thead>
       <tbody id="table-body">
@@ -31,7 +31,7 @@
           <td>
             <select onchange="changeInputType(this)">
               <option value="air">Air</option> 
-              <option value="numeric">Numeric Value</option>
+              <option value="numeric">Other material</option>
             </select>
           </td>
          <td></td>
