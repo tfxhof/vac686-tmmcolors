@@ -2,32 +2,72 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 import time
 
+
+def eliminar_fila_por_numero(numero_fila):
+    # Construir el XPath para encontrar el botón de eliminar en la fila específica
+    delete_button_xpath = f"//tbody[@id='table-body']/tr[{numero_fila}]/td/button[@class='delete-button']"
+
+    # Encontrar y hacer clic en el botón de eliminar en la fila específica
+    delete_button = driver.find_element_by_xpath(delete_button_xpath)
+    delete_button.click()
+    time.sleep(1)  # Esperar un segundo para que la fila se elimine completamente
+
+
+def anhadir_fila_por_numero(numero_fila):
+    # Construir el XPath para encontrar el botón de eliminar en la fila específica
+    add_button_xpath = f"//tbody[@id='table-body']/tr[{numero_fila}]/td/button[@class='add-row-button']"
+
+    # Encontrar y hacer clic en el botón de eliminar en la fila específica
+    add_button = driver.find_element_by_xpath(add_button_xpath)
+    add_button.click()
+    time.sleep(1)  # Esperar un segundo para que la fila se elimine completamente
+
+
 # Inicializar el navegador
 driver = webdriver.Chrome()  # Asegúrate de tener el driver de Chrome instalado y en el PATH
 
 try:
     # Abrir la página web
     driver.get("file:///C:/Users/victo/OneDrive/Documentos/TfgColors/web_client/index.html")
-    time.sleep(5)
-    # Simular la interacción del usuario: agregar una nueva fila
-    add_row_button = driver.find_element_by_class_name("add-row-button")
-    add_row_button.click()
-    time.sleep(2)  # Esperar un segundo para que la fila se agregue
+    time.sleep(1)
 
-    # Obtener los elementos de selección de materiales
-    material_selects = driver.find_elements_by_class_name("material-select")
+    # Añado una fila
+    anhadir_fila_por_numero(1)
+    time.sleep(1)
 
-    # Seleccionar el material en el primer select
-    material_selects[0].click()
+    # modificar material de la fila añadida
+    select_xpath = f"//tbody[@id='table-body']/tr[{1}]/td[{2}]/select"
+    select_element = driver.find_element_by_xpath(select_xpath)
+    select_element.click()  # Hacer clic en el select para abrir las opciones
+    time.sleep(1)
+    select_element.send_keys("other material")  # Enviar las teclas para escribir "au" y filtrar las opciones
+    time.sleep(1)
+    select_element.send_keys(Keys.ENTER)
     time.sleep(2)
-    material_selects[0].send_keys("au")
-    material_selects[0].send_keys(Keys.ENTER)
-    time.sleep(2)
+    thickness_input = driver.find_element_by_xpath("//input[@placeholder='Enter numeric value']")
+    thickness_input.send_keys("1")
+    time.sleep(1)
 
-    # Simular la entrada de grosor en el primer campo de entrada
-    thickness_input = driver.find_element_by_xpath("//input[@placeholder='input thickness']")
+    # Modificar el grosor de la fila añadida
+    thickness_input = driver.find_element_by_xpath("//tbody[@id='table-body']/tr[2]/td[3]/input")
+    thickness_input.clear()
     thickness_input.send_keys("100")
-    time.sleep(2)
+    time.sleep(1)
+
+    # Modificar el grosor de la fila incial
+    thickness_input = driver.find_element_by_xpath("//tbody[@id='table-body']/tr[3]/td[3]/input")
+    # Suponiendo que el primer campo de entrada en la tabla es el campo de grosor
+    thickness_input.clear()  # Limpiar cualquier valor existente en el campo
+    thickness_input.send_keys("150")
+    time.sleep(5)
+
+    # Añado una fila
+    anhadir_fila_por_numero(3)
+
+    time.sleep(3)
+
+    eliminar_fila_por_numero(3)
+    time.sleep(1)
 
     # Simular hacer clic en el botón para obtener el color
     get_color_button = driver.find_element_by_id("mostrar-colores-button")
