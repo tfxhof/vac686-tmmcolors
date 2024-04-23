@@ -3,6 +3,26 @@
 
     {"label": "Au", "id": 2},
 
-    {"label": "Ag", "id": 3}
+    {"label": "Ag", "id": 3},
+
+    {"label": "Ag2O", "id": 4},
+
+    {"label": "Al", "id": 5},
+
+    {"label": "Cu", "id": 6},
+
+    {"label": "Ga2O3", "id": 7},
+
+    {"label": "GaN", "id": 8},
+
+    {"label": "In", "id": 9},
+
+    {"label": "Mg", "id": 10},
+
+    {"label": "Pt", "id": 11},
+
+    {"label": "Re", "id": 12},
+
+    {"label": "Rh", "id": 13}
 
 ]
