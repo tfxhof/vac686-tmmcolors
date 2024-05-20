@@ -166,6 +166,9 @@ function obtenerColores() {
   const grosoresArray = [];
 
 
+  let hayError = false;
+  let mensajeError = '';
+
  
 
     // Obtener el material de la fila
@@ -190,9 +193,25 @@ function obtenerColores() {
       // Obtener el grosor de la fila
       const grosorInput = fila.querySelector('input[type="text"]');
       const grosorIngresado = grosorInput ? (grosorInput.value.trim() === '' ? 2000 : grosorInput.value) : 2000;
+        if (isNaN(grosorIngresado)){
+          hayError = true;
+          mensajeError = 'Thikness field must be a numeric value';
+          break; // Salir del bucle al encontrar el primer error
+        } if (parseFloat(grosorIngresado) <= 0) {
+          hayError = true;
+          mensajeError = 'Thikness value must be a number greater than 0';
+          break;
+      } 
+       
+      
       grosoresArray.push(grosorIngresado);
   }
 
+  if (hayError) {
+    // Mostrar el mensaje de error en la interfaz
+    resultadoJsonDiv.textContent = mensajeError;
+    return; // Salir de la función si hay un error
+  }
 
   // Hacer la solicitud al servidor con los valores obtenidos
   fetch(`http://localhost:5000/colors/${materialesArray.join(',')}/${grosoresArray.join(',')}`)
@@ -235,9 +254,9 @@ function obtenerColores() {
 
     })
     .catch(error => {
-      console.error('Error al obtener colores:', error);
+      console.error('Error retrieving colors:', error);
       // Manejar el error si es necesario
-      resultadoJsonDiv.textContent = 'Error al obtener colores';
+      resultadoJsonDiv.textContent = 'Error retrieving colors';
     });
 }
 

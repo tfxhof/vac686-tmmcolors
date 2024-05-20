@@ -127,15 +127,26 @@ class get_colors(Resource):
             except ValueError:
                 return jsonify({'error': 'El primer material no es válido'})
 
-        # Crear una función de índice de refracción para el aire
-        # air_n_fn = lambda wavelength: 1
-        # si_n_fn = leer_fichero('si')
+            # Crear una función de índice de refracción para el aire
+            # air_n_fn = lambda wavelength: 1
+            # si_n_fn = leer_fichero('si')
 
-        # Calcular los valores RGB
+            # Calcular los valores RGB
         th_0 = 0
-
         # Dividir la cadena de grosores en una lista de números
-        grosores_list = [float(g) if g != 'inf' else float('inf') for g in grosores.split(',')]
+        grosores_str_list = grosores.split(',')
+        grosores_list = []
+
+        for g in grosores_str_list:
+            try:
+                grosor = float(g) if g != 'inf' else float('inf')
+            except ValueError:
+                return jsonify({'error': 'Thikness field must be a numeric value'})
+
+            if grosor < 0:
+                return jsonify({'error': 'Thikness value must be a number greater than 0'})
+
+            grosores_list.append(grosor)
 
         # Verificar que haya al menos dos grosores
         if len(grosores_list) < 1:
