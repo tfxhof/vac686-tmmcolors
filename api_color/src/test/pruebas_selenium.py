@@ -76,8 +76,9 @@ try:
 
     # Verificar si se muestra el color RGB en el resultado
     resultado_json_div = driver.find_element_by_id("resultado-json")
-    assert "RGB" in resultado_json_div.text, "No se mostró el color RGB en el resultado"
-
+    color_rgb = resultado_json_div.text.split(":")[1].strip().replace("{", "").replace("}", "")  # Obtener el valor RGB del resultado sin llaves
+    expected_rgb = "159,164,174"
+    assert color_rgb == expected_rgb, f"El color RGB ({color_rgb}) no coincide con el valor esperado ({expected_rgb})"
     print("Prueba exitosa!")
 
 finally:

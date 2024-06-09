@@ -187,8 +187,13 @@ function obtenerColores() {
       materialesArray.push(materialSeleccionado);
       }
     });
+
+    if (materialesArray.length === 2) {
+      hayError = true;
+      mensajeError = 'You should add at least one layer.';
+    }
   // Iterar sobre todas las filas de la tabla para procesar el grosor, excepto la última fila
-  for (let i = 1; i < filas.length - 1; i++) {
+  for (let i = 1; i < filas.length-1; i++) {
       const fila = filas[i];
       // Obtener el grosor de la fila
       const grosorInput = fila.querySelector('input[type="text"]');
@@ -207,8 +212,10 @@ function obtenerColores() {
        
       
       grosoresArray.push(grosorIngresado);
-    
   }
+
+    
+  
 
   
 
@@ -222,7 +229,13 @@ function obtenerColores() {
   fetch(`http://localhost:5000/colors/${materialesArray.join(',')}/${grosoresArray.join(',')}`)
     .then(response => {
       if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
+        if (response.status === 404) {
+          throw new Error('Error server not found');
+        } else if (response.status === 500) {
+          throw new Error('Internal server error');
+        } else {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
       }
       return response.json();
     })
@@ -261,8 +274,13 @@ function obtenerColores() {
     .catch(error => {
       console.error('Error retrieving colors:', error);
       // Manejar el error si es necesario
-      resultadoJsonDiv.textContent = 'Error retrieving colors';
-    });
+      if (error.message.includes('Server not found')) {
+        resultadoJsonDiv.textContent = 'Error: Server not found.';
+      } else if (error.message.includes('Internal server error')) {
+        resultadoJsonDiv.textContent = 'Error: Internal server error';
+      } else {
+        resultadoJsonDiv.textContent = 'Error: Unable to connect to the server.';
+      }    });
 }
 
 function mostrarColorRGB(rgb) {

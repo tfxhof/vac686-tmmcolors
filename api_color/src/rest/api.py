@@ -25,6 +25,7 @@ parser = reqparse.RequestParser()
 parser.add_argument('materiales', type=str, help='Lista de materiales separados por comas')
 parser.add_argument('grosores', type=str, help='Lista de grosores separados por comas')
 
+
 @api.route('/materiales/label')
 class obtenerNombreMateriales(Resource):
     def get(self):
@@ -46,12 +47,9 @@ class obtenerNombreMateriales(Resource):
             return {'error': 'Archivo JSON no encontrado'}, 404
 
 
-
-
-
 @api.route('/colors/<materiales>/<grosores>')
 class get_colors(Resource):
-    def get(self, materiales, grosores):
+    def get(self, materiales, grosores=None):
         # Dividir la cadena de materiales en una lista
         materiales_list = materiales.split(',') if materiales else []
 
@@ -77,6 +75,8 @@ class get_colors(Resource):
 
             # Calcular los valores RGB
         th_0 = 0
+        if grosores is None or grosores == '':
+            return jsonify({'error': 'You should add at least one layer.'})
         # Dividir la cadena de grosores en una lista de números
         grosores_str_list = grosores.split(',')
         grosores_list = []
@@ -93,8 +93,7 @@ class get_colors(Resource):
             grosores_list.append(grosor)
 
         # Verificar que haya al menos dos grosores
-        if len(grosores_list) < 1:
-            grosores_list = []
+
 
         # Calcular los valores RGB
         d_list = [float('inf')] + grosores_list + [float('inf')]  # Agregar infinito al final para el último material
@@ -107,6 +106,8 @@ class get_colors(Resource):
         }
         return jsonify(resultado)
 
+
+api.add_resource(get_colors, '/colors/<string:materiales>/', '/colors/<string:materiales>/<string:grosores>')
 
 if __name__ == '__main__':
     httpd = TCPServer(("", 8000), handler)
