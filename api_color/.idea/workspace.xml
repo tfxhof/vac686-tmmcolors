@@ -3,14 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="ce6c5ebe-7c3e-4f82-bfb5-d6c76f9888fa" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/documents/diccionario.json" beforeDir="false" afterPath="$PROJECT_DIR$/documents/catalogo.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/documents/m_Pt.txt" beforeDir="false" afterPath="$PROJECT_DIR$/documents/m_Pt.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/calculo_color/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/calculo_color/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/others/mainprueba.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/others/mainprueba.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/rest/api.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/rest/api.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test1/pruebas.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/pruebas.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test1/pruebas_selenium.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/pruebas_selenium.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../web_client/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/../web_client/script.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +53,7 @@
       <recent name="C:\Users\victo\OneDrive\Documentos\TfgColors\api_color\documents" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python tests.Python tests for src.test.pruebas.TestMyModule.test_sum">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <module name="api_color" />
       <option name="INTERPRETER_OPTIONS" value="" />
