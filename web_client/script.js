@@ -201,11 +201,16 @@ function obtenerColores() {
           hayError = true;
           mensajeError = 'Thikness value must be a number greater than 0';
           break;
-      } 
+          
+      
+        }
        
       
       grosoresArray.push(grosorIngresado);
+    
   }
+
+  
 
   if (hayError) {
     // Mostrar el mensaje de error en la interfaz
