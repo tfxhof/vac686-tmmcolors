@@ -53,8 +53,11 @@ class get_colors(Resource):
         # Dividir la cadena de materiales en una lista
         materiales_list = materiales.split(',') if materiales else []
 
+
         if len(materiales_list) < 1:
             return jsonify({'error': 'Se requieren al menos dos materiales'})
+        if len(materiales_list) > 15:
+            return jsonify({'error': 'No s epueden anadir mas materiales'})
         primer_material = materiales_list.pop(0)
 
         # Crear una lista de funciones de índice de refracción para los materiales
