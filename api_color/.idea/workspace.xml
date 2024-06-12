@@ -3,9 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="ce6c5ebe-7c3e-4f82-bfb5-d6c76f9888fa" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/calculo_color/lee_fichero.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/calculo_color/lee_fichero.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/rest/api.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/rest/api.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../web_client/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../web_client/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,7 +54,7 @@
       <recent name="C:\Users\victo\OneDrive\Documentos\TfgColors\api_color\documents" />
     </key>
   </component>
-  <component name="RunManager" selected="Python tests.Python tests for src.test.pruebas.TestMyModule.test_sum">
+  <component name="RunManager">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <module name="api_color" />
       <option name="INTERPRETER_OPTIONS" value="" />

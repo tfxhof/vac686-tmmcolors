@@ -11,13 +11,13 @@
 - selenium.
 
 ## 3. Project structure
-En cuanto a la estructura del proyecto, dentro de la carpeta `tfgColors` se encuentran dos carpetas, `api_color` y `web_client`.
+Regarding the project structure, within the `tfgColors` folder there are two folders, `api_color` and `web_client`.
 
 ### Server structure.
-En la carpeta `api_color` se encuentra creado el servidor, dentro del src existen varias carpetas, la carpeta `calculo_color` contiene las clases con la logica interna del servidor y la carpeta `rest` contiene la api que lanza al servidor. Ademas existe la carpeta `test` donde se encuentran las pruebas unitarias utilizando unittest y las pruebas de interfaz utilizando selenium. Todo el código de la parte del servidor se ha realizado en el lenguaje de programación python.
+In the `api_color` folder, the server is created. Within the src directory, there are several folders: the `calculo_color` folder contains the classes with the server's internal logic, and the `rest` folder contains the API that launches the server. Additionally, there is a `test` folder where the unit tests using unittest and the interface tests using Selenium are located. All the server-side code is written in the Python programming language
 
 ### Client structure.
-En la carpeta `web_client` se encuentran los tres ficheros encargados de generar el cliente, el fichero `index.html` contiene el código html de la creación de la pagina web del cliente. El fichero `script.js` contiene la funcionalidad del cliente en el lenguaje javascript y el fichero `style.css` contiene el estilo de la web del cliente.
+In the `web_client` folder, there are three files responsible for generating the client. The `index.html` file contains the HTML code for creating the client's web page. The       `script.js` file contains the client's functionality in JavaScript, and the `style.css` file contains the styling for the client's web page.
 
 ## 4.Usage
-Para poder ejecutar la aplicación se debe iniciar el servidor utilizando `api.py` , para despues abrir `index.html` en un navegador web.
+To run the application, you need to start the server using `api.py`, and then open `index.html` in a web browser.
