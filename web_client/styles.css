@@ -13,7 +13,7 @@ body {
   text-align: center;
   margin-top: 0px;
   display: flex;
-  flex-direction: column; /* Cambiado a columna */
+  flex-direction: column; 
   align-items: center;
   justify-content: center;
   height: 100vh;
@@ -23,7 +23,6 @@ body {
 
 /* Encabezado H1 */
 #app h1 {
-  /* Estilos anteriores */
   position: relative;
   left: 0;
   margin-top: 0;
@@ -33,7 +32,6 @@ body {
 
 /* Encabezado H2 */
 #app h2 {
-  /* Estilos anteriores */
   position: relative;
   left: 0;
   margin-top: 2%;
@@ -43,19 +41,18 @@ body {
   word-wrap: break-word;
 }
 #app h2 .add-layer {
-  font-size: 30px; /* Tamaño de fuente para el símbolo "+" */
-  color: green; /* Color verde para el símbolo "+" */
+  font-size: 30px; 
+  color: green; 
 }
 
 #app h2 .delete-layer {
-  font-size: 30px; /* Tamaño de fuente para el símbolo "x" */
-  color: red; /* Color rojo para el símbolo "x" */
+  font-size: 30px; 
+  color: red; 
 }
 
 /* Botones */
 button.delete-button,
 button.add-row-button {
-  /* Estilos anteriores */
   color: red;
   padding: 5px;
   font-size: 2vw;
@@ -72,7 +69,6 @@ button.add-row-button {
 
 /* Estilos de la tabla */
 table {
-  /* Estilos anteriores */
   position: relative;
   margin-top: 5%;
   left: 2%;
@@ -84,10 +80,6 @@ table {
   overflow-y: auto;
   background-color: #f7faf6f0;
 }
-
-/* Otros estilos que puedas necesitar ajustar */
-/* ... */
-
 
 table, th, td {
   border: 5px solid #6f9a76;
@@ -111,19 +103,19 @@ button {
 
 #mostrar-colores-button {
   position:absolute;
-  right: 8%; /* Ajusta según sea necesario */
+  right: 8%; 
   padding: 10px;
   margin-top: 100px;
   border: 6px solid #000a04;
   background-color: #dbdedb;
   font-size: 30px;
-  width: 180px; /* Ajusta el ancho según sea necesario */
-  text-align: center; /* Centra el texto horizontalmente */
+  width: 180px; 
+  text-align: center; 
 }
 
 #color-div {
   position:absolute;
-  right: 8%; /* Ajusta según sea necesario */
+  right: 8%; 
   margin-top: 380px;
   padding: 40px;
   background-color: #ffffff;
@@ -131,19 +123,17 @@ button {
 
 #resultado-json {
   position:absolute;
-  right: 5%; /* Ajusta según sea necesario */
+  right: 5%; 
   margin-top: 590px;
   padding: 50px;
-  font-size: 20px; /* Reducido el tamaño de fuente */
+  font-size: 20px; 
 }
-
-
 
 .corner-image {
   position: absolute;
-  top: 20px; /* Ajusta según sea necesario */
-  right: 40px; /* Ajusta según sea necesario */
-  width: 250px; /* Ajusta el ancho según sea necesario */
+  top: 20px; 
+  right: 40px; 
+  width: 250px; 
   height: auto;
   border-radius: 50%;
 }
