@@ -33,7 +33,7 @@ class obtenerNombreMateriales(Resource):
         if os.path.exists(ruta_json):
             with open(ruta_json, 'r') as file:
                 contenido = json.load(file)
-                print("Contenido del archivo JSON:", contenido)  # Impresión para depuración
+                print("Content of JSON file:", contenido)  # Impresión para depuración
 
                 if contenido:
                     # Obtener el primer elemento de la lista (índice 0)
@@ -44,7 +44,7 @@ class obtenerNombreMateriales(Resource):
 
         else:
             # Si el archivo no existe, retorna un mensaje de error
-            return {'error': 'Archivo JSON no encontrado'}, 404
+            return {'error': 'JSON file not founded'}, 404
 
 
 @api.route('/colors/<materiales>/<grosores>')
@@ -54,9 +54,9 @@ class get_colors(Resource):
         materiales_list = materiales.split(',') if materiales else []
 
         if len(materiales_list) < 1:
-            return jsonify({'error': 'Se requieren al menos dos materiales'})
+            return jsonify({'error': 'You have to add at least two materials'})
         if len(materiales_list) > 50:
-            return jsonify({'error': 'No s epueden anadir mas materiales'})
+            return jsonify({'error': 'You can not add more materiales'})
         primer_material = materiales_list.pop(0)
 
         # Crear una lista de funciones de índice de refracción para los materiales
@@ -69,7 +69,7 @@ class get_colors(Resource):
                 valor_numerico = float(primer_material)
                 n_fn = lambda wavelength: valor_numerico
             except ValueError:
-                return jsonify({'error': 'El primer material no es válido'})
+                return jsonify({'error': 'The first material is not valid'})
 
             # Calcular los valores RGB
         th_0 = 0
@@ -108,7 +108,7 @@ api.add_resource(get_colors, '/colors/<string:materiales>/', '/colors/<string:ma
 
 if __name__ == '__main__':
     httpd = TCPServer(("", 8000), handler)
-    print("Servidor en el puerto 8000")
+    print("Server at port 8000")
 
     # Ejecuta Flask en segundo plano
     from threading import Thread

@@ -30,7 +30,7 @@ function agregarFilaDebajo(row) {
   thicknessCell.appendChild(thicknessInput);
   newRow.appendChild(thicknessCell);
 
-  // Creo el boton eliminar //eliminar
+  // Creo el boton eliminar
   const deleteButton = document.createElement('button');
   deleteButton.className = 'delete-button';
   deleteButton.textContent = '✕';
@@ -201,9 +201,10 @@ function obtenerColores() {
      }
      //caso de error
     if (hayError) {
-    resultadoJsonDiv.textContent = mensajeError;
-    return; 
-  }
+      eliminarColorRGB();
+      resultadoJsonDiv.textContent = mensajeError;
+      return; 
+    }
 
   // Hago la solicitud al servidor con los valores obtenidos
   fetch(`http://localhost:5000/colors/${materialesArray.join(',')}/${grosoresArray.join(',')}`)
@@ -264,6 +265,18 @@ function mostrarColorRGB(rgb) {
     const colorStyle = `rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]})`;
     // Establecer el color de fondo del div
     colorDiv.style.backgroundColor = colorStyle;
+  } else {
+    console.error('Elemento div no encontrado.');
+  }
+}
+
+function eliminarColorRGB() {
+  // Obtengo el elemento div donde se muestra el color
+  const colorDiv = document.getElementById('color-div');
+  // Verifico si el elemento div existe
+  if (colorDiv) {
+    // Restablecer el color de fondo del div a su valor predeterminado
+    colorDiv.style.backgroundColor = '';
   } else {
     console.error('Elemento div no encontrado.');
   }
