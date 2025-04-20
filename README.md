@@ -1,5 +1,15 @@
 # Refective  RGB color calculation.
 
+---
+
+## Metadatos TfxHoF
+
+- Autor: [Víctor Argüeso Cano](https://www.linkedin.com/in/victor-argueso-cano-28790a273/)
+- Título: [API REST y herramienta web para el cálculo del color en materiales multi-capa](https://repositorio.unican.es/xmlui/handle/10902/33693)
+- Fecha: Junio 2024
+
+---
+
 ## 1. Requirements
 - colorpy==0.1.1,
 - flask-restx==1.0.3,
